@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ instance.title }} | {{ block.super }}{% endblock head_title %}
+
+<style>
+{% block style %}
+
+h1 {
+
+	color:#777777;
+
+}
+{{ block.super }}
+
+{% endblock style%}
+</style>
+
+{% block content %}
+ <img src='{{ instance.image.url }}' class= 'img-responsive' align="center">
+
+<div class='col-sm-6 col-sm-offset-3'>
+<h1> 
+	
+ {{ instance.title }} <small> {{ instance.timestamp }}</small>
+ </h1>
+
+ 	{{ instance.content|linebreaks }} <br>
+ 	<p>
+ 	<a href='http://localhost:8000/blog/{{ instance.id }}/delete/'>
+ 	Delete
+
+ 	</a>
+ 	</p>
+ 	<p>
+ 	<a href='http://localhost:8000/blog/{{ instance.id }}/edit/'>
+ 	Update
+
+ 	</a>
+ 	</p>
+ 	</div>
+{% endblock content %}
+
+
+
+
+
